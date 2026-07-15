@@ -1,0 +1,12 @@
+{
+  "name": "mumuclass-skills",
+  "owner": { "name": "무궁무진클래스" },
+  "description": "교사를 위한 바이브코딩 실전 스킬 모음",
+  "plugins": [
+    {
+      "name": "mumu-teacher-skills",
+      "source": ".",
+      "description": "교사용 AI 스킬 9종 — 서브브레인·수업준비·평가·소통"
+    }
+  ]
+}
