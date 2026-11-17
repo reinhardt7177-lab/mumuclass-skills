@@ -41,13 +41,21 @@ curl -fsSL --create-dirs -o ~/.claude/agents/design-critic.md https://raw.github
 ```
 
 ## 2. Codex
-Codex는 `AGENTS.md`(전역은 `~/.codex/AGENTS.md`)를 읽습니다. 같은 역할을 쓰려면 에이전트 파일을 받아 두고, AGENTS.md에 "언제 어떤 파일을 읽고 그 역할로 점검하라"고 적어 주세요.
+Codex는 `~/.codex/agents/이름.toml` 파일을 서브에이전트로 씁니다. 모양은 이렇습니다.
 
-```markdown
-## 검수 역할
-- 화면을 보여 주기 전에 `~/.codex/agents/design-critic.md`를 읽고 그 역할로 스스로 검수한다.
-- 교육용 글·문제는 `~/.codex/agents/edu-reviewer.md` 기준으로 검토한다.
+```toml
+name = "design-critic"
+description = "언제 이 에이전트를 부르는지 한두 문장"
+developer_instructions = """
+여기에 역할, 할 일, 돌려줄 형식을 씁니다.
+"""
 ```
+
+무무 메이커 키트의 3종은 Codex용 `.toml`도 함께 들어 있습니다.
+```bash
+curl -fsSL --create-dirs -o ~/.codex/agents/design-critic.toml https://raw.githubusercontent.com/reinhardt7177-lab/mumuclass-skills/main/plugins/mumu-maker-kit/codex-agents/design-critic.toml
+```
+(Codex 버전에 따라 서브에이전트 지원 방식이 다를 수 있어요. 목록에 안 보이면 `~/.codex/AGENTS.md`에 "화면을 보여 주기 전에 design-critic 역할로 검수한다"처럼 적어 두면 같은 효과를 낼 수 있어요.)
 
 ## 3. 잘 쓰는 요령
 - 에이전트는 **좁고 분명하게**. "다 해 주는 에이전트"보다 "한 가지를 깐깐하게 보는 에이전트"가 낫습니다.
