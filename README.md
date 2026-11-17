@@ -43,6 +43,30 @@ curl -fsSL --create-dirs -o ~/.agents/skills/worksheet-maker/SKILL.md \
 /plugin install mumu-teacher-skills@mumuclass-skills
 ```
 
+## 메이커 키트 (해커톤·앱 제작) — `plugins/mumu-maker-kit`
+
+앱·게임을 직접 만드는 선생님을 위한 꾸러미입니다. 스킬 5종 + 서브에이전트 3종.
+
+| 종류 | 이름 | 하는 일 |
+|---|---|---|
+| 스킬 | `craft-consult` | 만들기 전 상담: 사례 조사 → 구조가 다른 방향 2~3개 → 시안 → 승인 |
+| 스킬 | `detail-qa` | 보여 주기 전 10개 항목 디테일 검수 |
+| 스킬 | `ship-check` | 깃허브 → 배포 → 운영 주소에서 최신 버전 확인 → 주소 전달 |
+| 스킬 | `hackathon-kickoff` | 주제 좁히기 → 스택 고르기 → 2시간 안 첫 배포 → 시연·발표 준비 |
+| 스킬 | `edu-content-writer` | 교육용 글·문제: 설계표 → 한 번에 쓰기 → 통째로 다시 읽기, 학습 위계 |
+| 에이전트 | `design-critic` | 스크린샷 기반 디자인 검수 (파일 수정 안 함) |
+| 에이전트 | `edu-reviewer` | 학습 위계·문맥·정답·초등 언어 검토 (파일 수정 안 함) |
+| 에이전트 | `qa-tester` | 실제로 눌러 보며 버그·회귀 찾기 (파일 수정 안 함) |
+
+```
+/plugin marketplace add reinhardt7177-lab/mumuclass-skills
+/plugin install mumu-maker-kit@mumuclass-skills
+```
+
+## 기본 세팅 — `setup/`
+- [`setup/CLAUDE.md`](setup/CLAUDE.md): 전역 지침 틀. Claude는 `~/.claude/CLAUDE.md`, Codex는 `~/.codex/AGENTS.md`에 넣습니다. `[ ]` 칸은 내 정보로 바꾸세요. 기존 파일이 있으면 덮어쓰지 말고 합치세요.
+- [`setup/SUBAGENTS.md`](setup/SUBAGENTS.md): 서브에이전트 설정법 (Claude·Codex)
+
 ## 안전 안내
 - 이 스킬들은 교사 업무를 돕는 **지침**입니다. `record-writer`(생기부)처럼 민감한 스킬은 **사실 날조를 막는 안전장치**를 넣었지만, **최종본은 반드시 교사가 사실을 확인한 뒤** 사용하세요.
 - 학생 개인정보(실명·연락처·진단·가정사 등)는 AI 대화창에 입력하지 않는 것을 권장합니다. 실명 대신 번호·이니셜을 쓰세요.
